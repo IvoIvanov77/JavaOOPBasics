@@ -10,18 +10,12 @@ public class FamilyMember {
     private List<FamilyMember> parents;
     private List<FamilyMember> children;
 
-    public FamilyMember() {
+    private FamilyMember() {
         this.parents = new ArrayList<>();
         this.children = new ArrayList<>();
     }
 
-    public FamilyMember(String name, String birthDate) {
-        this();
-        this.name = name;
-        this.birthDate = birthDate;
-    }
-
-    public FamilyMember(String input){
+    FamilyMember(String input){
         this();
         if(isBirthDate(input)){
             this.name = null;
@@ -41,11 +35,11 @@ public class FamilyMember {
         this.name = name;
     }
 
-    public String getBirthDate() {
+    String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(String birthDate) {
+    void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -53,33 +47,33 @@ public class FamilyMember {
         return input.matches("\\d+/\\d+/\\d+");
     }
 
-    public void addChild(FamilyMember child){
+    void addChild(FamilyMember child){
         this.children.add(child);
     }
 
-    public void addParent(FamilyMember parent){
+    void addParent(FamilyMember parent){
         this.parents.add(parent);
     }
 
-    public void printParents(){
+    void printParents(){
         System.out.println("Parents:");
         for (FamilyMember parent : parents) {
             System.out.println(parent);
         }
     }
 
-    public void printChildren(){
+    void printChildren(){
         System.out.println("Children:");
         for (FamilyMember child : children) {
             System.out.println(child);
         }
     }
 
-    public List<FamilyMember> getParents() {
+    List<FamilyMember> getParents() {
         return parents;
     }
 
-    public List<FamilyMember> getChildren() {
+    List<FamilyMember> getChildren() {
         return children;
     }
 
@@ -90,8 +84,8 @@ public class FamilyMember {
 
         FamilyMember that = (FamilyMember) o;
 
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
-        return birthDate != null ? birthDate.equals(that.birthDate) : that.birthDate == null;
+        return (name != null ? name.equals(that.name) : that.name == null)
+                && (birthDate != null ? birthDate.equals(that.birthDate) : that.birthDate == null);
     }
 
     @Override
