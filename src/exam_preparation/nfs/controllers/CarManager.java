@@ -1,12 +1,12 @@
-package exam_preparetion.nfs.controllers;
+package exam_preparation.nfs.controllers;
 
-import exam_preparetion.nfs.models.Cars.Car;
-import exam_preparetion.nfs.models.Cars.PerformanceCar;
-import exam_preparetion.nfs.models.Cars.ShowCar;
-import exam_preparetion.nfs.models.Garage.Garage;
-import exam_preparetion.nfs.models.Races.CasualRace;
-import exam_preparetion.nfs.models.Races.DragRace;
-import exam_preparetion.nfs.models.Races.Race;
+import exam_preparation.nfs.models.Cars.Car;
+import exam_preparation.nfs.models.Cars.PerformanceCar;
+import exam_preparation.nfs.models.Cars.ShowCar;
+import exam_preparation.nfs.models.Garage.Garage;
+import exam_preparation.nfs.models.Races.CasualRace;
+import exam_preparation.nfs.models.Races.DragRace;
+import exam_preparation.nfs.models.Races.Race;
 
 import java.util.HashMap;
 import java.util.Map;

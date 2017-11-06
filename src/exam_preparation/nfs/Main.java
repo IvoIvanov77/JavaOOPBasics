@@ -1,8 +1,8 @@
-package exam_preparetion.nfs;
+package exam_preparation.nfs;
 
-import exam_preparetion.nfs.models.Cars.Car;
-import exam_preparetion.nfs.models.Cars.PerformanceCar;
-import exam_preparetion.nfs.models.Cars.ShowCar;
+import exam_preparation.nfs.models.Cars.Car;
+import exam_preparation.nfs.models.Cars.PerformanceCar;
+import exam_preparation.nfs.models.Cars.ShowCar;
 
 /**
  * Created by ivaylo on 11/5/2017.

@@ -1,6 +1,4 @@
-package exam_preparetion.nfs.models.Cars;
-
-import java.util.Collection;
+package exam_preparation.nfs.models.Cars;
 
 /**
  * Created by ivaylo on 11/5/2017.
@@ -19,6 +17,7 @@ public abstract class Car {
     private int durability;
     private boolean isParked;
     private boolean isInRace;
+    private int performance;
 
     public Car(String brand, String model, int yearOfProduction,
                int horsepower, int acceleration, int suspension,
@@ -109,6 +108,29 @@ public abstract class Car {
     public void tune(int index, String addOn){
         this.horsepower += index;
         this.suspension += index /2;
+    }
+
+
+    public int getOverallPerformance(){
+        return this.getHorsepower() / this.getAcceleration() +
+                this.getSuspension() + this.getDurability();
+    }
+
+    public int getEnginePerformance(){
+        return this.getHorsepower() / this.getAcceleration();
+
+    }
+
+    public int getSuspensionPerformance(){
+        return  this.getSuspension() + this.getDurability();
+    }
+
+    public int getPerformance() {
+        return performance;
+    }
+
+    public void setPerformance(int performance) {
+        this.performance = performance;
     }
 
     @Override

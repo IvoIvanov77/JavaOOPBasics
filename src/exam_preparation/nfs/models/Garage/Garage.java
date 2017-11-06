@@ -1,11 +1,7 @@
-package exam_preparetion.nfs.models.Garage;
+package exam_preparation.nfs.models.Garage;
 
-import exam_preparetion.nfs.models.Cars.Car;
-import exam_preparetion.nfs.models.Cars.PerformanceCar;
-import exam_preparetion.nfs.models.Cars.ShowCar;
+import exam_preparation.nfs.models.Cars.Car;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 

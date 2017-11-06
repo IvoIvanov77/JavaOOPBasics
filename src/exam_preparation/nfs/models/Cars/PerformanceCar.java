@@ -1,4 +1,4 @@
-package exam_preparetion.nfs.models.Cars;
+package exam_preparation.nfs.models.Cars;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -1,6 +1,4 @@
-package exam_preparetion.nfs.models.Cars;
-
-import exam_preparetion.nfs.models.Cars.Car;
+package exam_preparation.nfs.models.Cars;
 
 /**
  * Created by ivaylo on 11/5/2017.
