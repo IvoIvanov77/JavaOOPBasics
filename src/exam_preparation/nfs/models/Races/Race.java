@@ -47,13 +47,14 @@ public abstract class Race {
 
     @Override
     public String toString() {
-        StringBuilder b = new StringBuilder(String.format("%s - %s\n", this.route, this.length));
+        StringBuilder b = new StringBuilder(String.format("%s - %s", this.route, this.length));
         Car first = this.participants.size() > 0 ? this.participants.get(0) : null;
         Car second = this.participants.size() > 1 ? this.participants.get(1) : null;
         Car third = this.participants.size() > 2 ? this.participants.get(2) : null;
-        b.append(String.format("1. %s", getCar(first, this.prizePool * 50 / 100)));
-        b.append(String.format("2. %s", getCar(second, this.prizePool * 30 / 100)));
-        b.append(String.format("3. %s", getCar(third, this.prizePool * 20 / 100)));
+        b.append(String.format("\n1. %s", getCar(first, this.prizePool * 50 / 100)));
+        b.append(String.format("\n2. %s", getCar(second, this.prizePool * 30 / 100)));
+        b.append(String.format("\n3. %s", getCar(third, this.prizePool * 20 / 100)));
+
         return b.toString();
     }
 
@@ -61,18 +62,11 @@ public abstract class Race {
         if(car == null){
             return "";
         }
-        return String.format("%s %s %dPP - $%d\n", car.getBrand(), car.getModel(),
+        return String.format("%s %s %dPP - $%d", car.getBrand(), car.getModel(),
                 car.getPerformance(), prize);
     }
 
 
-//    “{route} - {length}
-// 1. {brand} {model} {performancePoints}PP - ${moneyWon}
-// 2. {brand} {model} {performancePoints}PP - ${moneyWon}
-// 3. {brand} {model} {performancePoints}PP - ${moneyWon}”
-//            1, 2 and 3 – being the 1st, 2nd and 3rd participants (the winners).
-//    If there are LESS than 3 participants, print as much as there are.
-//    In case there are NO participants, print “Cannot start the race with zero participants.”,
-//    and IGNORE the command.
+
 
 }

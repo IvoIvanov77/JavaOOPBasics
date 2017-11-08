@@ -27,7 +27,7 @@ public class CarManager {
 
     }
 
-    public void register(Integer id, String type, String brand, String model,
+    public void register(int id, String type, String brand, String model,
                          int yearOfProduction, int horsepower, int acceleration,
                          int suspension, int durability){
 
@@ -42,12 +42,14 @@ public class CarManager {
                 break;
         }
     }
+//    java.lang.NoSuchMethodException: exam_preparation.nfs.controllers.CarManager.
+// register(int, java.lang.String, java.lang.String, java.lang.String, int, int, int, int, int)
 
-    public String check(Integer id){
+    public String check(int id){
         return this.registeredCars.get(id).toString();
     }
 
-    public void open(Integer id, String type, int length, String route, int prizePool){
+    public void open(int id, String type, int length, String route, int prizePool){
         switch (type){
             case "Casual" : this.openedRaces.put(id,
                     new CasualRace(length, route, prizePool));
@@ -61,7 +63,7 @@ public class CarManager {
         }
     }
 
-    public void participate(Integer carId, Integer raceId){
+    public void participate(int carId, int raceId){
         Car car = this.registeredCars.get(carId);
         if(car.isParked()){
             return;

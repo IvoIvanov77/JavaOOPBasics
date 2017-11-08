@@ -145,16 +145,4 @@ public abstract class Car {
         );
     }
 
-
-
-
-
-    //    “{brand} {model} {yearOfProduction}
-//    {horsepower} HP, 100 m/h in {acceleration} s
-//    {suspension} Suspension force, {durability} Durability”
-//    If the car is a PerformanceCar, you must print “Add-ons: {add-ons}”, on the
-//    last line – each add-on separated by a comma and a space “, “. In case there are
-//    NO add-ons, print “None”.
-//    If the car is a ShowCar, you must print “{stars} *”, on the last line.
-
 }
