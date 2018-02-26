@@ -23,6 +23,7 @@ public class Garage {
 
     public void unpark(int id) {
         if(this.parkedCars.containsKey(id)){
+            this.parkedCars.get(id).setParked(false);
             this.parkedCars.remove(id);
         }
     }

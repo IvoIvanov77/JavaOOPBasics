@@ -5,28 +5,28 @@ import exam_preparation.nfs.models.Cars.Car;
 import exam_preparation.nfs.models.Cars.PerformanceCar;
 import exam_preparation.nfs.models.Cars.ShowCar;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  * Created by ivaylo on 11/5/2017.
  */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-//        Car car = new PerformanceCar("Trabant", "601",
-//                1988, 2000, 1, 10000,
-//                1000
-//        );
-//
-//        Car car1 = new ShowCar("Porsche", "Carrera", 2017,
-//                550, 4, 300, 100
-//        );
-//
-//        CarManager manager = new CarManager();
-////        manager.register();
-//
-//        car.tune(1000, "Ivaylo");
-//        car1.tune(500, "None");
-//        System.out.println(car);
-//        System.out.println(car1);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        CarManager manager = new CarManager();
+
+        String line;
+
+        while (true){
+            if("Cops Are Here".equalsIgnoreCase(line = reader.readLine())){
+                break;
+            }
+
+            manager.run(line);
+        }
 
     }
 }

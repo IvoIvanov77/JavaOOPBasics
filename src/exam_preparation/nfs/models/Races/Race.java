@@ -30,10 +30,17 @@ public abstract class Race {
         this.participants.add(car);
     }
 
+    public int getLength() {
+        return length;
+    }
+
+    public int getParticipantsCount() {
+        return participants.size();
+    }
+
     public void start(){
         if(this.participants.isEmpty()){
-            System.out.println("Cannot start the race with zero participants");
-            return;
+            throw new UnsupportedOperationException("Cannot start the race with zero participants.");
         }
         for (Car car : participants) {
             setPerformance(car);
@@ -52,9 +59,12 @@ public abstract class Race {
         Car second = this.participants.size() > 1 ? this.participants.get(1) : null;
         Car third = this.participants.size() > 2 ? this.participants.get(2) : null;
         b.append(String.format("\n1. %s", getCar(first, this.prizePool * 50 / 100)));
-        b.append(String.format("\n2. %s", getCar(second, this.prizePool * 30 / 100)));
-        b.append(String.format("\n3. %s", getCar(third, this.prizePool * 20 / 100)));
-
+        if(second != null){
+            b.append(String.format("\n2. %s", getCar(second, this.prizePool * 30 / 100)));
+        }
+        if(third != null){
+            b.append(String.format("\n3. %s", getCar(third, this.prizePool * 20 / 100)));
+        }
         return b.toString();
     }
 

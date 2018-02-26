@@ -4,9 +4,7 @@ import exam_preparation.nfs.models.Cars.Car;
 import exam_preparation.nfs.models.Cars.PerformanceCar;
 import exam_preparation.nfs.models.Cars.ShowCar;
 import exam_preparation.nfs.models.Garage.Garage;
-import exam_preparation.nfs.models.Races.CasualRace;
-import exam_preparation.nfs.models.Races.DragRace;
-import exam_preparation.nfs.models.Races.Race;
+import exam_preparation.nfs.models.Races.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,9 +25,49 @@ public class CarManager {
 
     }
 
+    public void run(String line){
+
+        String[] input = line.split(" ");
+        String command = input[0];
+        int id = Integer.parseInt(input[1]);
+
+        switch (command){
+            case "register" : register(
+                    id, input[2], input[3], input[4], Integer.parseInt(input[5]),
+                    Integer.parseInt(input[6]), Integer.parseInt(input[7]),
+                    Integer.parseInt(input[8]), Integer.parseInt(input[9])
+                    );
+                    break;
+            case "open" : {
+                if(input.length == 6){
+                    open(id, input[2], Integer.parseInt(input[3]), input[4], Integer.parseInt(input[5]));
+                }else {
+                    openSpecialRace(id, input[2], Integer.parseInt(input[3]), input[4],
+                            Integer.parseInt(input[5]),Integer.parseInt(input[6]));
+                }
+
+            }
+                    break;
+            case "participate" : participate(id, Integer.parseInt(input[2]));
+                break;
+            case "check" :
+                System.out.println(check(id));
+                break;
+            case "start" :
+                System.out.println(start(id));
+                break;
+            case "park" : park(id);
+                break;
+            case "unpark" : unpark(id);
+                break;
+            case "tune" : tune(id, input[2]);
+        }
+
+    }
+
     public void register(int id, String type, String brand, String model,
-                         int yearOfProduction, int horsepower, int acceleration,
-                         int suspension, int durability){
+                          int yearOfProduction, int horsepower, int acceleration,
+                          int suspension, int durability){
 
         switch (type){
             case "Performance" : this.registeredCars.put(id,
@@ -63,6 +101,19 @@ public class CarManager {
         }
     }
 
+    public void openSpecialRace(int id, String type, int length, String route, int prizePool, int extraParameter){
+        switch (type) {
+            case "TimeLimit":
+                this.openedRaces.put(id,
+                        new TimeLimitRace(length, route, prizePool, extraParameter));
+                break;
+            case "Circuit":
+                this.openedRaces.put(id,
+                        new CircuitRace(length, route, prizePool, extraParameter));
+                break;
+        }
+    }
+
     public void participate(int carId, int raceId){
         Car car = this.registeredCars.get(carId);
         if(car.isParked()){
@@ -74,7 +125,17 @@ public class CarManager {
     }
 
     public String start(int id){
-        return this.openedRaces.remove(id).toString();
+
+        Race race = this.openedRaces.get(id);
+        try{
+            race.start();
+
+        }catch (UnsupportedOperationException uoe){
+            return uoe.getMessage();
+        }
+
+        this.openedRaces.remove(id);
+        return race.toString();
 
     }
 
@@ -90,7 +151,7 @@ public class CarManager {
         this.garage.unpark(carId);
     }
 
-    public void tune (int tuneIndex, String tuneAddOn){
+    public void tune(int tuneIndex, String tuneAddOn){
         this.garage.tune(tuneIndex, tuneAddOn);
     }
 
